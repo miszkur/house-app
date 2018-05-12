@@ -27,7 +27,7 @@ export default class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={{flex: 1, marginTop: 40, justifyContent: 'space-evenly', flexDirection: 'row'}}>
+        <View style={{flex: 1, marginTop: 40, justifyContent: 'space-evenly', flexDirection: 'row',  borderBottomWidth: 1,  borderBottomColor: '#b3b3b3'}}>
           <View style={{ padding: 10, paddingTop:0, flex: 1, alignItems: 'center',justifyContent: 'flex-end' }}>
             <Image
               style={{
@@ -42,7 +42,7 @@ export default class HomeScreen extends React.Component {
             </View>
           </View>
           <View style={{margin: 10, flex: 1,  alignItems: 'center', justifyContent: 'center', backgroundColor: 'skyblue', borderRadius: 15}}>
-            <Text style={{fontSize: 20}}>PUNKTY</Text>
+            <Text style={{fontSize: 20}}>MOJE PUNKTY</Text>
             < SelfPoints />
           </View>
         </View>
@@ -58,7 +58,7 @@ export default class HomeScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#fff'
   },
   developmentModeText: {
     marginBottom: 20,

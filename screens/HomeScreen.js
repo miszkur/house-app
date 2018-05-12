@@ -21,18 +21,21 @@ export default class HomeScreen extends React.Component {
     return (
       <View style={styles.container}>
         <View style={{flex: 1, marginTop: 40, justifyContent: 'space-evenly', flexDirection: 'row'}}>
-          <View style={{ padding: 10, flex: 1, alignItems: 'center', backgroundColor: 'red', borderRadius: 15}}>
+          <View style={{ padding: 10, paddingTop:0, flex: 1, alignItems: 'center',justifyContent: 'flex-end' ,borderRadius: 15}}>
             <Image
               style={{
-                flex:1,
-                position: 'absolute',
-                resizeMode:'cover'}}
+                flex: 1,
+                }}
+              resizeMode="contain"
               source={require('../assets/images/calendar.png')}
             />
-
+            <View style={{ position:'absolute', alignItems: 'center',justifyContent: 'flex-end'}}>
+              <Text style={{fontSize: 50}}>45</Text>
+              <Text style={{marginBottom:25, fontSize: 20}}>DNI DO KOŃCA</Text>
+            </View>
           </View>
-          <View style={{margin: 10, flex: 1,  alignItems: 'center', backgroundColor: 'skyblue', borderRadius: 15}}>
-            <Text style={{fontSize: 20}}>PUNKTY</Text>
+          <View style={{margin: 10, flex: 1,  alignItems: 'center', justifyContent: 'center', backgroundColor: 'skyblue', borderRadius: 15}}>
+            <Text style={{fontSize: 20}}>PUNKTYY</Text>
             <Text style={{fontSize: 50}}>45</Text>
           </View>
         </View>

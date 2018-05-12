@@ -16,18 +16,18 @@ import {MonoText} from '../components/StyledText';
 
 const doneTasks =  [
   {
-    "id": 1,
     "task": {
-      "title": "zrobienie apki"
+      "title": "zrobienie apki",
+      "reward": 3
     },
     "user": {
       "username": "igi"
     }
   },
   {
-    "id": 2,
     "task": {
-      "title": "mycie podłogi"
+      "title": "mycie podłogi",
+      "reward": 4
     },
     "user": {
       "username": "aga"
@@ -56,7 +56,7 @@ export default class HomeScreen extends React.Component {
 
             </View>
             <View style={{ flex: 1, backgroundColor:'pink' }}>
-
+              <Text style={{ fontSize: 15}}>{item.task.reward}</Text>
             </View>
           </View>
           <View style={{padding: 10,flex: 3, backgroundColor:'lightblue'}}>

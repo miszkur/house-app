@@ -34,7 +34,7 @@ export default class HomeScreenList extends React.Component {
 
   renderRow({item}) {
     return (
-      <View style={{ flexDirection: 'row', justifyContent: 'space-between', borderColor: 'black'}}>
+      <View style={{ flexDirection: 'row', justifyContent: 'space-between',borderStyle: 'solid', borderColor: 'black'}}>
         <View style={{flex: 1}}>
           <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
             <View style={{ width: 45, height:45 }}>

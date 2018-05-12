@@ -1,6 +1,7 @@
 import React , { Component }from 'react';
 import {  StyleSheet, Text, View, Dimensions, TouchableOpacity, TextInput } from 'react-native';
 import { Rating, AirbnbRating } from 'react-native-ratings';
+import TasksList from "../components/TasksList";
 
 export default class LinksScreen extends React.Component {
   constructor(props) {
@@ -97,8 +98,10 @@ export default class LinksScreen extends React.Component {
   render() {
     return (
       //<Text style={styles.getStartedText}>Get started by opening</Text>
-      <View style={styles.center}>
+      <View style={styles.container}>
+        <TasksList style={{ backgroundColor: 'red'}}/>
       {this.state.add === true && this.renderAdd()}
+
     </View>
 
     );
@@ -155,14 +158,16 @@ const styles = StyleSheet.create({
   },
   roundWrapper: {
     overflow: 'hidden',
+
     width: '100%',
     height: '100%',
   },
   addWrapper: {
     width: Dimensions.get('window').width - 50,
     height: Dimensions.get('window').width - 50,
-    padding: 10,
-    backgroundColor: '#fff',
+    padding: 20,
+    borderRadius: 10,
+    backgroundColor: 'powderblue',
     overflow: 'hidden',
   },
   button: {

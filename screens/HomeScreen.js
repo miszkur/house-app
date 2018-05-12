@@ -18,17 +18,32 @@ import SelfPoints from '../components/SelfPoints';
 import HomeScreenList from '../components/HomeScreenList';
 
 
-
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
-    header: null,
+    title: 'Strona główna',
+    headerTintColor: 'skyblue',
+    headerStyle: {
+      backgroundColor: 'steelblue',
+      borderBottomColor: 'skyblue',
+      borderBottomWidth: 3,
+    },
+    headerTitleStyle: {
+      fontSize: 22,
+    },
   };
 
   render() {
     return (
       <View style={styles.container}>
-        <View style={{flex: 1, marginTop: 40, justifyContent: 'space-evenly', flexDirection: 'row',  borderBottomWidth: 1,  borderBottomColor: '#b3b3b3'}}>
-          <View style={{ padding: 10, paddingTop:0, flex: 1, alignItems: 'center',justifyContent: 'flex-end' }}>
+        <View style={{
+          flex: 1,
+          marginTop: 40,
+          justifyContent: 'space-evenly',
+          flexDirection: 'row',
+          borderBottomWidth: 1,
+          borderBottomColor: '#b3b3b3'
+        }}>
+          <View style={{padding: 10, paddingTop: 0, flex: 1, alignItems: 'center', justifyContent: 'flex-end'}}>
             <Image
               style={{
                 flex: 1,
@@ -36,18 +51,25 @@ export default class HomeScreen extends React.Component {
               resizeMode="contain"
               source={require('../assets/images/calendar.png')}
             />
-            <View style={{ position:'absolute', alignItems: 'center',justifyContent: 'flex-end'}}>
-              <DaysTillDeadline />
-              <Text style={{marginBottom:25, fontSize: 20}}>DNI DO KOŃCA</Text>
+            <View style={{position: 'absolute', alignItems: 'center', justifyContent: 'flex-end'}}>
+              <DaysTillDeadline/>
+              <Text style={{marginBottom: 25, fontSize: 15}}>DNI DO KOŃCA</Text>
             </View>
           </View>
-          <View style={{margin: 10, flex: 1,  alignItems: 'center', justifyContent: 'center', backgroundColor: 'skyblue', borderRadius: 15}}>
+          <View style={{
+            margin: 10,
+            flex: 1,
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundColor: 'skyblue',
+            borderRadius: 15
+          }}>
             <Text style={{fontSize: 20}}>MOJE PUNKTY</Text>
-            < SelfPoints />
+            < SelfPoints/>
           </View>
         </View>
 
-          <HomeScreenList style={{flex: 2}}/>
+        <HomeScreenList style={{flex: 2}}/>
 
 
       </View>

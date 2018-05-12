@@ -1,5 +1,7 @@
 import React from 'react';
 import { ExpoConfigView } from '@expo/samples';
+import RankList from "../components/RankList";
+import {Text, View} from "react-native";
 
 export default class PodiumScreen extends React.Component {
   static navigationOptions = {
@@ -18,7 +20,11 @@ export default class PodiumScreen extends React.Component {
   render() {
     /* Go ahead and delete ExpoConfigView and replace it with your
      * content, we just wanted to give you a quick view of your config */
-    return <ExpoConfigView />;
+    return (
+      <View style={{flex: 1}}>
+        <Text style={{ fontSize: 50, color: 'steelblue', textAlign: 'center'}}>404 fnf</Text>
+      <RankList style={{flex: 1}}/>
+    </View>);
   }
 }
 /**

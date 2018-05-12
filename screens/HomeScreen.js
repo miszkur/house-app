@@ -11,6 +11,7 @@ import {
 import {WebBrowser} from 'expo';
 
 import {MonoText} from '../components/StyledText';
+import DaysTillDeadline from '../components/DaysTillDeadline';
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -30,7 +31,7 @@ export default class HomeScreen extends React.Component {
               source={require('../assets/images/calendar.png')}
             />
             <View style={{ position:'absolute', alignItems: 'center',justifyContent: 'flex-end'}}>
-              <Text style={{fontSize: 50}}>45</Text>
+              <DaysTillDeadline />
               <Text style={{marginBottom:25, fontSize: 20}}>DNI DO KOŃCA</Text>
             </View>
           </View>

@@ -1,5 +1,5 @@
 import React from 'react';
-import {FlatList, Image, ListView, ScrollView, Text, View} from 'react-native';
+import {Dimensions, FlatList, Image, ListView, ScrollView, StyleSheet, Text, View} from 'react-native';
 import icons from "../constants/icons";
 
 
@@ -82,9 +82,100 @@ export default class TasksList extends React.Component {
 
   render() {
     return (
-      <View style={{flex: 1, backgroundColor: 'blue'}}>
-      <Text>lalalala</Text>
+      <View style={styles.container}>
+        <ScrollView>
+          <View>
+            < FlatList
+              data={this.state.tasksDataSource}
+              renderItem={this.renderRow}
+              keyExtractor={this.keyExtractor}>
+            </FlatList>
+          </View>
+        </ScrollView>
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  center: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#ffffff',
+  },
+  container: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    paddingVertical: 25,
+    paddingHorizontal: 10,
+    flex: 1,
+  },
+  card: {
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    borderRadius: 10,
+    padding: 10,
+    margin: 5,
+    marginTop: 10,
+  },
+  header: {
+    fontSize: 22,
+    fontWeight: '700',
+  },
+  subheading: {
+    fontSize: 18,
+    marginTop: 3,
+    color: '#6e080e',
+  },
+  map: {
+    alignSelf: 'stretch',
+    flex: 1,
+  },
+  topWrapper: {
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
+    zIndex: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0,0,0,0.3)',
+  },
+  roundWrapper: {
+    overflow: 'hidden',
+
+    width: '100%',
+    height: '100%',
+  },
+  addWrapper: {
+    width: Dimensions.get('window').width - 50,
+    height: Dimensions.get('window').width - 50,
+    padding: 20,
+    borderRadius: 10,
+    backgroundColor: 'powderblue',
+    overflow: 'hidden',
+  },
+  button: {
+    alignItems:'center',
+    justifyContent: 'center',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    padding: 15,
+    backgroundColor: 'steelblue',
+    marginRight:5,
+    marginLeft:5,
+    flex:1,
+    borderRadius: 50,
+  },
+  buttonText: {
+    fontSize: 20,
+    textAlign: 'center',
+    color: '#ffffff',
+  },
+})
+

@@ -98,8 +98,10 @@ export default class LinksScreen extends React.Component {
   render() {
     return (
       //<Text style={styles.getStartedText}>Get started by opening</Text>
-      <View style={styles.container}>
-        <TasksList style={{ backgroundColor: 'red'}}/>
+      <View style={styles.center}>
+        <View style={styles.container}>
+        <TasksList style={{ backgroundColor: 'red' }}/>
+        </View>
       {this.state.add === true && this.renderAdd()}
 
     </View>

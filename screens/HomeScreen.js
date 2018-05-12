@@ -14,61 +14,14 @@ import {WebBrowser} from 'expo';
 
 import {MonoText} from '../components/StyledText';
 import DaysTillDeadline from '../components/DaysTillDeadline';
+import HomeScreenList from '../components/HomeScreenList';
 
-const doneTasks =  [
-  {
-    "task": {
-      "title": "zrobienie apki",
-      "reward": 3
-    },
-    "user": {
-      "username": "igi"
-    }
-  },
-  {
-    "task": {
-      "title": "mycie podłogi",
-      "reward": 4
-    },
-    "user": {
-      "username": "aga"
-    }
-  }
-];
+
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null,
   };
-
-  constructor() {
-    super();
-    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-    this.state = {
-      tasksDataSource: doneTasks,
-    };
-  };
-
-  renderRow({item}) {
-    return (
-        <View  style={{padding: 10, flexDirection:'row',  justifyContent: 'space-between'}}>
-          <View style={{ flex: 1, backgroundColor:'red' }}>
-            <View style={{ flex: 1, backgroundColor:'grey' }}>
-
-            </View>
-            <View style={{ flex: 1, backgroundColor:'pink' }}>
-              <Text style={{ fontSize: 15}}>{item.task.reward}</Text>
-            </View>
-          </View>
-          <View style={{padding: 10,flex: 3, backgroundColor:'lightblue'}}>
-            <Text style={{ fontSize: 20}}>{item.task.title.toUpperCase()}</Text>
-            <Text style={{ fontSize: 15, color: 'grey'}}>{item.user.username}</Text>
-          </View>
-
-        </View>
-      );
-  };
-  keyExtractor = (item, index) => item.id + '';
 
   render() {
     return (
@@ -92,17 +45,8 @@ export default class HomeScreen extends React.Component {
             <Text style={{fontSize: 50}}>45</Text>
           </View>
         </View>
-        <View style={styles.listView}>
-          <ScrollView >
-            <View>
-              < FlatList
-                data={this.state.tasksDataSource}
-                renderItem={this.renderRow}
-                keyExtractor={this.keyExtractor}>
-              </FlatList>
-            </View>
-          </ScrollView>
-        </View>
+
+          <HomeScreenList style={{flex: 2}}/>
 
 
       </View>
@@ -114,9 +58,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-  },
-  listView: {
-    flex: 2
   },
   developmentModeText: {
     marginBottom: 20,

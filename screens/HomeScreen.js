@@ -4,7 +4,9 @@ import {
   Platform,
   ScrollView,
   StyleSheet,
+  ListView,
   Text,
+  FlatList,
   TouchableOpacity,
   View,
 } from 'react-native';
@@ -13,20 +15,70 @@ import {WebBrowser} from 'expo';
 import {MonoText} from '../components/StyledText';
 import DaysTillDeadline from '../components/DaysTillDeadline';
 
+const doneTasks =  [
+  {
+    "id": 1,
+    "task": {
+      "title": "zrobienie apki"
+    },
+    "user": {
+      "username": "igi"
+    }
+  },
+  {
+    "id": 2,
+    "task": {
+      "title": "mycie podłogi"
+    },
+    "user": {
+      "username": "aga"
+    }
+  }
+];
+
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null,
   };
 
+  constructor() {
+    super();
+    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    this.state = {
+      tasksDataSource: doneTasks,
+    };
+  };
+
+  renderRow({item}) {
+    return (
+        <View  style={{padding: 10, flexDirection:'row',  justifyContent: 'space-between'}}>
+          <View style={{ flex: 1, backgroundColor:'red' }}>
+            <View style={{ flex: 1, backgroundColor:'grey' }}>
+
+            </View>
+            <View style={{ flex: 1, backgroundColor:'pink' }}>
+
+            </View>
+          </View>
+          <View style={{padding: 10,flex: 3, backgroundColor:'lightblue'}}>
+            <Text style={{ fontSize: 20}}>{item.task.title.toUpperCase()}</Text>
+            <Text style={{ fontSize: 15, color: 'grey'}}>{item.user.username}</Text>
+          </View>
+
+        </View>
+      );
+  };
+  keyExtractor = (item, index) => item.id + '';
+
   render() {
     return (
       <View style={styles.container}>
         <View style={{flex: 1, marginTop: 40, justifyContent: 'space-evenly', flexDirection: 'row'}}>
-          <View style={{ padding: 10, paddingTop:0, flex: 1, alignItems: 'center',justifyContent: 'flex-end' ,borderRadius: 15}}>
+          <View style={{ padding: 10, paddingTop:0, flex: 1, alignItems: 'center',justifyContent: 'flex-end' }}>
             <Image
               style={{
                 flex: 1,
-                }}
+              }}
               resizeMode="contain"
               source={require('../assets/images/calendar.png')}
             />
@@ -42,39 +94,12 @@ export default class HomeScreen extends React.Component {
         </View>
         <View style={styles.listView}>
           <ScrollView >
-            <View style={styles.welcomeContainer}>
-              <Image
-                source={
-                  __DEV__
-                    ? require('../assets/images/robot-dev.png')
-                    : require('../assets/images/robot-prod.png')
-                }
-                style={styles.welcomeImage}
-              />
-            </View>
-
-            <View style={styles.getStartedContainer}>
-              {this._maybeRenderDevelopmentModeWarning()}
-
-              <Text style={styles.getStartedText}>Get started by opening</Text>
-              <Text style={styles.getStartedText}>Get started by opening</Text>
-              <Text style={styles.getStartedText}>Get started by opening</Text>
-              <Text style={styles.getStartedText}>Get started by opening</Text>
-              <Text style={styles.getStartedText}>Get started by opening</Text>
-
-              <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-                <MonoText style={styles.codeHighlightText}>screens/HomeScreen.js</MonoText>
-              </View>
-
-              <Text style={styles.getStartedText}>
-                Change this text and your app will automatically reload.
-              </Text>
-            </View>
-
-            <View style={styles.helpContainer}>
-              <TouchableOpacity onPress={this._handleHelpPress} style={styles.helpLink}>
-                <Text style={styles.helpLinkText}>Help, it didn’t automatically reload!</Text>
-              </TouchableOpacity>
+            <View>
+              < FlatList
+                data={this.state.tasksDataSource}
+                renderItem={this.renderRow}
+                keyExtractor={this.keyExtractor}>
+              </FlatList>
             </View>
           </ScrollView>
         </View>
@@ -83,39 +108,6 @@ export default class HomeScreen extends React.Component {
       </View>
     );
   }
-
-  _maybeRenderDevelopmentModeWarning() {
-    if (__DEV__) {
-      const learnMoreButton = (
-        <Text onPress={this._handleLearnMorePress} style={styles.helpLinkText}>
-          Learn more
-        </Text>
-      );
-
-      return (
-        <Text style={styles.developmentModeText}>
-          Development mode is enabled, your app will be slower but you can use useful development
-          tools. {learnMoreButton}
-        </Text>
-      );
-    } else {
-      return (
-        <Text style={styles.developmentModeText}>
-          You are not in development mode, your app will run at full speed.
-        </Text>
-      );
-    }
-  }
-
-  _handleLearnMorePress = () => {
-    WebBrowser.openBrowserAsync('https://docs.expo.io/versions/latest/guides/development-mode');
-  };
-
-  _handleHelpPress = () => {
-    WebBrowser.openBrowserAsync(
-      'https://docs.expo.io/versions/latest/guides/up-and-running.html#can-t-see-your-changes'
-    );
-  };
 }
 
 const styles = StyleSheet.create({

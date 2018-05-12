@@ -32,7 +32,7 @@ export default class HomeScreen extends React.Component {
 
           </View>
           <View style={{margin: 10, flex: 1,  alignItems: 'center', backgroundColor: 'skyblue', borderRadius: 15}}>
-            <Text style={{fontSize: 20}}>PUNKTY</Text>
+            <Text style={{fontSize: 20}}>PUNKTYYYY</Text>
             <Text style={{fontSize: 50}}>45</Text>
           </View>
         </View>

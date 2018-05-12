@@ -14,6 +14,7 @@ import {WebBrowser} from 'expo';
 
 import {MonoText} from '../components/StyledText';
 import DaysTillDeadline from '../components/DaysTillDeadline';
+import SelfPoints from '../components/SelfPoints';
 import HomeScreenList from '../components/HomeScreenList';
 
 
@@ -41,8 +42,8 @@ export default class HomeScreen extends React.Component {
             </View>
           </View>
           <View style={{margin: 10, flex: 1,  alignItems: 'center', justifyContent: 'center', backgroundColor: 'skyblue', borderRadius: 15}}>
-            <Text style={{fontSize: 20}}>PUNKTYY</Text>
-            <Text style={{fontSize: 50}}>45</Text>
+            <Text style={{fontSize: 20}}>PUNKTY</Text>
+            < SelfPoints />
           </View>
         </View>
 

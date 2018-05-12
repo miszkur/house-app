@@ -3,7 +3,16 @@ import { ExpoConfigView } from '@expo/samples';
 
 export default class PodiumScreen extends React.Component {
   static navigationOptions = {
-    title: 'app.json',
+    title: 'Ranking',
+    headerTintColor: 'skyblue',
+    headerStyle: {
+      backgroundColor: 'steelblue',
+      borderBottomColor: 'skyblue',
+      borderBottomWidth: 3,
+    },
+    headerTitleStyle: {
+      fontSize: 22,
+    },
   };
 
   render() {

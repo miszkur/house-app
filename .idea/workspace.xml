@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3ffca754-19af-4457-a19d-63d7b35ee7a4" name="Default" comment="home screen in prgress">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    <list default="true" id="3ffca754-19af-4457-a19d-63d7b35ee7a4" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/schema.graphql" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/utils/getRelayEnvironment.js" />
+      <change beforePath="$PROJECT_DIR$/.babelrc" afterPath="$PROJECT_DIR$/.babelrc" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
+      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change beforePath="$PROJECT_DIR$/screens/HomeScreen.js" afterPath="$PROJECT_DIR$/screens/HomeScreen.js" />
+      <change beforePath="$PROJECT_DIR$/screens/LinksScreen.js" afterPath="$PROJECT_DIR$/screens/LinksScreen.js" />
+      <change beforePath="$PROJECT_DIR$/screens/PodiumScreen.js" afterPath="$PROJECT_DIR$/screens/PodiumScreen.js" />
+      <change beforePath="$PROJECT_DIR$/screens/SettingsScreen.js" afterPath="$PROJECT_DIR$/screens/SettingsScreen.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -55,10 +63,10 @@
         <entry file="file://$PROJECT_DIR$/screens/PodiumScreen.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-9">
-              <caret line="11" column="30" lean-forward="false" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
+              <caret line="20" column="30" lean-forward="false" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
-                <element signature="e#387#429#0" expanded="false" />
+                <marker date="1526125033040" expanded="false" signature="595:637" ph="/** Created by natal on 12.05.2018. ...*/" />
               </folding>
             </state>
           </provider>
@@ -67,8 +75,8 @@
       <file leaf-file-name="HomeScreen.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/screens/HomeScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="17" column="4" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
+            <state relative-caret-position="667">
+              <caret line="63" column="49" lean-forward="false" selection-start-line="63" selection-start-column="49" selection-end-line="63" selection-end-column="49" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -173,10 +181,10 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2539" />
-    <option name="y" value="66" />
-    <option name="width" value="976" />
-    <option name="height" value="1038" />
+    <option name="x" value="2391" />
+    <option name="y" value="-244" />
+    <option name="width" value="3218" />
+    <option name="height" value="1768" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -334,7 +342,7 @@
       <updated>1526109803823</updated>
       <workItem from="1526109805446" duration="3943000" />
       <workItem from="1526114279750" duration="717000" />
-      <workItem from="1526115029862" duration="9516000" />
+      <workItem from="1526115029862" duration="13349000" />
     </task>
     <task id="LOCAL-00001" summary="llll">
       <created>1526114852876</created>
@@ -364,21 +372,29 @@
       <option name="project" value="LOCAL" />
       <updated>1526124466786</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="home screen in prgress">
+      <created>1526125018181</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1526125018181</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14176000" />
+    <option name="totallyTimeSpent" value="18009000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2391" y="-244" width="3218" height="1768" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2503942" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2503942" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32953104" sideWeight="0.5023652" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32953104" sideWeight="0.49763483" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32953104" sideWeight="0.49889624" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32953104" sideWeight="0.49763483" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32953104" sideWeight="0.49763483" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32180664" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -404,9 +420,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="llll" />
-    <MESSAGE value="home screen in prgress" />
     <MESSAGE value="calendar added" />
-    <option name="LAST_COMMIT_MESSAGE" value="calendar added" />
+    <MESSAGE value="home screen in prgress" />
+    <option name="LAST_COMMIT_MESSAGE" value="home screen in prgress" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -447,7 +463,7 @@
           <caret line="11" column="30" lean-forward="false" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#387#429#0" expanded="false" />
+            <marker date="1526125033040" expanded="false" signature="595:637" ph="/** Created by natal on 12.05.2018. ...*/" />
           </folding>
         </state>
       </provider>
@@ -536,7 +552,7 @@
           <caret line="11" column="30" lean-forward="false" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#387#429#0" expanded="false" />
+            <marker date="1526125033040" expanded="false" signature="595:637" ph="/** Created by natal on 12.05.2018. ...*/" />
           </folding>
         </state>
       </provider>
@@ -713,10 +729,10 @@
     <entry file="file://$PROJECT_DIR$/screens/PodiumScreen.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-9">
-          <caret line="11" column="30" lean-forward="false" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
+          <caret line="20" column="30" lean-forward="false" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#387#429#0" expanded="false" />
+            <marker date="1526125033040" expanded="false" signature="595:637" ph="/** Created by natal on 12.05.2018. ...*/" />
           </folding>
         </state>
       </provider>
@@ -731,8 +747,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/screens/HomeScreen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="17" column="4" lean-forward="true" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
+        <state relative-caret-position="667">
+          <caret line="63" column="49" lean-forward="false" selection-start-line="63" selection-start-column="49" selection-end-line="63" selection-end-column="49" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

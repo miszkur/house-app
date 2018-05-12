@@ -57,7 +57,7 @@ export default class TasksList extends React.Component {
     icon = icons.flower;
 
     return (
-      <View style={{ flexDirection: 'row', padding: 10, justifyContent: 'space-between', borderBottomWidth: 1,  backgroundColor: 'red', borderBottomColor: '#d1d1d1'}}>
+      <View style={{ flexDirection: 'row', padding: 10, justifyContent: 'space-between', borderBottomWidth: 1,  borderBottomColor: '#d1d1d1'}}>
         <View style={{flex: 1}}>
           <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
             <View style={{width: 50, height:50, padding: 2, backgroundColor:'powderblue', borderWidth: 1, borderColor: '#d1d1d1'}}>

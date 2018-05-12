@@ -1,25 +1,26 @@
-import React , { Component }from 'react';
-import {  StyleSheet, Text, View, Dimensions, TouchableOpacity, TextInput } from 'react-native';
-import { Rating, AirbnbRating } from 'react-native-ratings';
+import React, {Component} from 'react';
+import {StyleSheet, Text, View, Dimensions, TouchableOpacity, TextInput} from 'react-native';
+import {Rating, AirbnbRating} from 'react-native-ratings';
 import TasksList from "../components/TasksList";
 
 export default class LinksScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      add:false,
-      text:" ",
+      add: false,
+      text: " ",
     };
   }
-  onPressButton= ()=>{
+
+  onPressButton = () => {
     this.setState({
-    add:true,
-  })
+      add: true,
+    })
   };
 
-  static navigationOptions = ({ navigation }) => {
-    const { params = {} } = navigation.state;
-    return{
+  static navigationOptions = ({navigation}) => {
+    const {params = {}} = navigation.state;
+    return {
       marginRight: 20,
       title: 'Zadania',
       headerTintColor: 'skyblue',
@@ -31,12 +32,19 @@ export default class LinksScreen extends React.Component {
       headerTitleStyle: {
         fontSize: 22,
       },
-      headerRight:(
+      headerRight: (
         <TouchableOpacity
           onPress={() => params.onPressButton()}
-          style={{marginRight:30, backgroundColor: 'skyblue',borderRadius: 50, width: '80%', alignItems: 'center', justifyContent: 'center', }}
+          style={{
+            marginRight: 30,
+            backgroundColor: 'skyblue',
+            borderRadius: 50,
+            width: '80%',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
         >
-          <Text style={{fontSize: 30, color: 'steelblue',}} >+</Text>
+          <Text style={{fontSize: 30, color: 'steelblue',}}>+</Text>
         </TouchableOpacity>
 
       ),
@@ -44,14 +52,14 @@ export default class LinksScreen extends React.Component {
   };
 
   componentDidMount() {
-    const { navigation } = this.props;
+    const {navigation} = this.props;
 
     navigation.setParams({
       onPressButton: this.onPressButton,
     });
   }
 
-  closeAdd = () => this.setState({ add: false });
+  closeAdd = () => this.setState({add: false});
 
   renderAdd = () => (
     <View style={styles.topWrapper}>
@@ -67,27 +75,27 @@ export default class LinksScreen extends React.Component {
               />
             </View>
           </View>
-          <View style={{alignSelf: 'stretch', flex: 2, marginBottom:10}}>
+          <View style={{alignSelf: 'stretch', flex: 2, marginBottom: 10}}>
             <AirbnbRating
               count={5}
-              reviews={["1pkt.","2pkt.","3pkt.","4pkt.","5pkt."]}
+              reviews={["1pkt.", "2pkt.", "3pkt.", "4pkt.", "5pkt."]}
               defaultRating={1}
               size={30}
 
             />
           </View>
-          <View style={{flexDirection:'row',flex: 1}}>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={this.closeAdd}
-          >
-            <Text style={styles.buttonText}>Zamknij</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.button}
-          >
-            <Text style={styles.buttonText}>Dodaj</Text>
-          </TouchableOpacity>
+          <View style={{flexDirection: 'row', flex: 1}}>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={this.closeAdd}
+            >
+              <Text style={styles.buttonText}>Zamknij</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.button}
+            >
+              <Text style={styles.buttonText}>Dodaj</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </View>
@@ -100,11 +108,16 @@ export default class LinksScreen extends React.Component {
       //<Text style={styles.getStartedText}>Get started by opening</Text>
       <View style={styles.center}>
         <View style={styles.container}>
-        <TasksList style={{ backgroundColor: 'red' }}/>
+          <View  style={{ flex: 1}}>
+            <Text style={{fontSize: 50, flex: 1, color: 'steelblue', textAlign: 'center'}}>Zadania do zrobienia!</Text>
+          </View>
+          <View  style={{ flex: 3}}>
+            <TasksList style={{borderTopWidth: 1, flex: 1}}/>
+          </View>
         </View>
-      {this.state.add === true && this.renderAdd()}
+        {this.state.add === true && this.renderAdd()}
 
-    </View>
+      </View>
 
     );
   }
@@ -120,9 +133,9 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     height: '100%',
-    justifyContent: 'space-evenly',
-    alignItems: 'center',
-    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    flexDirection: 'column',
     flexWrap: 'wrap',
     paddingVertical: 25,
     paddingHorizontal: 10,
@@ -173,16 +186,16 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   button: {
-    alignItems:'center',
+    alignItems: 'center',
     justifyContent: 'center',
     bottom: 0,
     left: 0,
     right: 0,
     padding: 15,
     backgroundColor: 'steelblue',
-    marginRight:5,
-    marginLeft:5,
-    flex:1,
+    marginRight: 5,
+    marginLeft: 5,
+    flex: 1,
     borderRadius: 50,
   },
   buttonText: {

@@ -1,6 +1,5 @@
 import React , { Component }from 'react';
-import { ScrollView, StyleSheet, Text, Button, View, Dimensions, TouchableOpacity, TextInput } from 'react-native';
-import { Constants } from 'expo';
+import {  StyleSheet, Text, View, Dimensions, TouchableOpacity, TextInput } from 'react-native';
 import { Rating, AirbnbRating } from 'react-native-ratings';
 
 export default class LinksScreen extends React.Component {

@@ -1,6 +1,6 @@
 import React from 'react';
 import {graphql, QueryRenderer} from 'react-relay';
-import { Text } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
 
 import getRelayEnvironment from '../utils/getRelayEnvironment';
 
@@ -34,8 +34,8 @@ export default class SelfPoints extends React.Component {
   }
 }
 
-const styles = {
+const styles = StyleSheet.create({
   selfPointsText: {
     fontSize: 50,
   },
-};
+});

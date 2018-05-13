@@ -1,5 +1,5 @@
 import React from 'react';
-import {FlatList, Image, ScrollView, Text, View} from 'react-native';
+import { FlatList, Image, ScrollView, StyleSheet, Text, View } from 'react-native';
 import icons from "../constants/Icons";
 import getRelayEnvironment from "../utils/getRelayEnvironment";
 import { graphql, QueryRenderer } from "react-relay";
@@ -94,7 +94,7 @@ export default class HomeScreenList extends React.Component {
   }
 }
 
-const styles = {
+const styles = StyleSheet.create({
 
   doneTaskDate: {
     fontSize: 15,
@@ -150,4 +150,4 @@ const styles = {
   },
 
 
-};
+});

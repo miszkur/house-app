@@ -1,5 +1,4 @@
 import React from 'react';
-import { ExpoConfigView } from '@expo/samples';
 import RankList from "../components/RankList";
 import {Text, View} from "react-native";
 
@@ -27,6 +26,3 @@ export default class PodiumScreen extends React.Component {
     </View>);
   }
 }
-/**
- * Created by natal on 12.05.2018.
- */

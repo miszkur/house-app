@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {StyleSheet, Text, View, Dimensions, TouchableOpacity, TextInput} from 'react-native';
-import {Rating, AirbnbRating} from 'react-native-ratings';
+import {AirbnbRating} from 'react-native-ratings';
 import TasksList from "../components/TasksList";
 
-export default class LinksScreen extends React.Component {
+export default class TasksScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -35,16 +35,9 @@ export default class LinksScreen extends React.Component {
       headerRight: (
         <TouchableOpacity
           onPress={() => params.onPressButton()}
-          style={{
-            marginRight: 30,
-            backgroundColor: 'skyblue',
-            borderRadius: 50,
-            width: '80%',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
+          style={styles.addTaskButton}
         >
-          <Text style={{fontSize: 30, color: 'steelblue',}}>+</Text>
+          <Text style={styles.addTaskButtonText}>+</Text>
         </TouchableOpacity>
 
       ),
@@ -65,17 +58,17 @@ export default class LinksScreen extends React.Component {
     <View style={styles.topWrapper}>
       <View style={styles.addWrapper}>
         <View style={styles.roundWrapper}>
-          <View style={{alignSelf: 'stretch', flex: 3}}>
-            <View style={{alignSelf: 'stretch', flex: 1,}}>
+          <View style={styles.anotherInputWrapper}>
+            <View style={styles.inputWrapper}>
               <TextInput
                 placeholder={"Nazwa zadania"}
-                style={{height: 40, borderColor: 'steelblue', borderWidth: 3}}
+                style={styles.input}
                 onChangeText={(text) => this.setState({text})}
                 value={this.state.text}
               />
             </View>
           </View>
-          <View style={{alignSelf: 'stretch', flex: 2, marginBottom: 10}}>
+          <View style={styles.rating}>
             <AirbnbRating
               count={5}
               reviews={["1pkt.", "2pkt.", "3pkt.", "4pkt.", "5pkt."]}
@@ -84,7 +77,7 @@ export default class LinksScreen extends React.Component {
 
             />
           </View>
-          <View style={{flexDirection: 'row', flex: 1}}>
+          <View style={styles.buttonsWrapper}>
             <TouchableOpacity
               style={styles.button}
               onPress={this.closeAdd}
@@ -102,21 +95,18 @@ export default class LinksScreen extends React.Component {
     </View>
   );
 
-
   render() {
     return (
-      //<Text style={styles.getStartedText}>Get started by opening</Text>
       <View style={styles.center}>
         <View style={styles.container}>
-          <View  style={{ flex: 1}}>
-            <Text style={{fontSize: 50, flex: 1, color: 'steelblue', textAlign: 'center'}}>Zadania do zrobienia!</Text>
+          <View  style={styles.title}>
+            <Text style={styles.titleText}>Zadania do zrobienia!</Text>
           </View>
-          <View  style={{ flex: 3}}>
-            <TasksList style={{borderTopWidth: 1, flex: 1}}/>
+          <View  style={styles.tasksListWrapper}>
+            <TasksList style={styles.taskList}/>
           </View>
         </View>
         {this.state.add === true && this.renderAdd()}
-
       </View>
 
     );
@@ -124,6 +114,64 @@ export default class LinksScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
+
+  taskList: {
+    borderTopWidth: 1,
+    flex: 1,
+  },
+
+  tasksListWrapper: { flex: 3, },
+
+  titleText: {
+    fontSize: 50,
+    flex: 1,
+    color: 'steelblue',
+    textAlign: 'center',
+  },
+
+  title: { flex: 1, },
+
+  rating: {
+    alignSelf: 'stretch',
+    flex: 2,
+    marginBottom: 10,
+  },
+
+  input: {
+    height: 40,
+    borderColor: 'steelblue',
+    borderWidth: 3,
+  },
+
+  inputWrapper: {
+    alignSelf: 'stretch',
+    flex: 1,
+  },
+
+  anotherInputWrapper: {
+    alignSelf: 'stretch',
+    flex: 3,
+  },
+
+  buttonsWrapper: {
+    flexDirection: 'row',
+    flex: 1,
+  },
+
+  addTaskButtonText: {
+    fontSize: 30,
+    color: 'steelblue',
+  },
+
+  addTaskButton: {
+    marginRight: 30,
+    backgroundColor: 'skyblue',
+    borderRadius: 50,
+    width: '80%',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
   center: {
     flex: 1,
     justifyContent: 'center',
@@ -203,4 +251,4 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#ffffff',
   },
-})
+});

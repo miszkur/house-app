@@ -3,9 +3,9 @@
 
 
 import React from 'react';
-import {FlatList, Image, ListView, ScrollView, Text, View} from 'react-native';
+import {FlatList, Image, ScrollView, Text, View} from 'react-native';
 import _ from 'lodash';
-import icons from "../constants/icons";
+import icons from "../constants/Icons";
 
 
 

@@ -1,109 +1,10 @@
 import React from 'react';
-import {FlatList, Image, ListView, ScrollView, Text, View} from 'react-native';
-import icons from "../constants/icons";
-
-
-const doneTasks = [
-  {
-    "task": {
-      "title": "zrobienie apki",
-      "reward": 3,
-      "iconIndex": 0
-    },
-    "user": {
-      "username": "igi"
-    },
-    "date": "dzisiaj"
-  },
-  {
-    "task": {
-      "title": "mycie podłogi",
-      "reward": 4,
-      "iconIndex": 1
-    },
-    "user": {
-      "username": "aga"
-    },
-    "date": "wczoraj"
-  },
-  {
-    "task": {
-      "title": "zrobienie apki",
-      "reward": 3,
-      "iconIndex": 0
-    },
-    "user": {
-      "username": "igi"
-    },
-    "date": "dzisiaj"
-  },
-  {
-    "task": {
-      "title": "mycie podłogi",
-      "reward": 4,
-      "iconIndex": 1
-    },
-    "user": {
-      "username": "aga"
-    },
-    "date": "wczoraj"
-  },
-  {
-    "task": {
-      "title": "zrobienie apki",
-      "reward": 3,
-      "iconIndex": 0
-    },
-    "user": {
-      "username": "igi"
-    },
-    "date": "dzisiaj"
-  },
-  {
-    "task": {
-      "title": "mycie podłogi",
-      "reward": 4,
-      "iconIndex": 1
-    },
-    "user": {
-      "username": "aga"
-    },
-    "date": "wczoraj"
-  },
-  {
-    "task": {
-      "title": "zrobienie apki",
-      "reward": 3,
-      "iconIndex": 0
-    },
-    "user": {
-      "username": "igi"
-    },
-    "date": "dzisiaj"
-  },
-  {
-    "task": {
-      "title": "mycie podłogi",
-      "reward": 4,
-      "iconIndex": 1
-    },
-    "user": {
-      "username": "aga"
-    },
-    "date": "wczoraj"
-  }
-
-
-];
+import {FlatList, Image, ScrollView, Text, View} from 'react-native';
+import icons from "../constants/Icons";
+import getRelayEnvironment from "../utils/getRelayEnvironment";
+import { graphql, QueryRenderer } from "react-relay";
 
 export default class HomeScreenList extends React.Component {
-
-  constructor() {
-    super();
-    this.state = {
-      tasksDataSource: doneTasks,
-    };
-  };
 
   renderRow({item}) {
 
@@ -115,28 +16,27 @@ export default class HomeScreenList extends React.Component {
     } else if (item.task.iconIndex === 3) {
       icon = icons.flower;
     }
-    icon = icons.flower;
 
     return (
-      <View style={{ flexDirection: 'row', padding: 10, justifyContent: 'space-between', borderBottomWidth: 1,  borderBottomColor: '#d1d1d1'}}>
-        <View style={{flex: 1}}>
-          <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-            <View style={{width: 50, height:50, padding: 2, backgroundColor:'powderblue', borderWidth: 1, borderColor: '#d1d1d1'}}>
+      <View style={styles.itemContainer}>
+        <View style={styles.iconRewardContainer}>
+          <View style={styles.iconContainer}>
+            <View style={styles.anotherIconContainer}>
               <Image source={icon}
-                     style={{
-                       width: 45, height:45,
-                     }}
+                     style={styles.icon}
                      resizeMode="contain"/>
             </View>
           </View>
           <View >
-            <Text style={{fontSize: 15, textAlign: 'center'}}>{item.task.reward} pkt</Text>
+            <Text style={styles.reward}>
+              {item.task.reward} pkt
+            </Text>
           </View>
         </View>
-        <View style={{ flex: 3}}>
-          <Text style={{fontSize: 24}}>{item.task.title}</Text>
-          <Text style={{fontSize: 20, color: 'steelblue'}}>{item.user.username}</Text>
-          <Text style={{fontSize: 15, color: 'grey'}}>{item.date}</Text>
+        <View style={styles.doneTaskInfo}>
+          <Text style={styles.doneTaskTitle}>{item.task.title}</Text>
+          <Text style={styles.doneTaskUsername}>{item.user.username}</Text>
+          <Text style={styles.doneTaskDate}>{item.date}</Text>
         </View>
 
       </View>
@@ -147,17 +47,107 @@ export default class HomeScreenList extends React.Component {
 
   render() {
     return (
-      <View style={{flex: 2}}>
-        <ScrollView>
-          <View>
-            < FlatList
-              data={this.state.tasksDataSource}
-              renderItem={this.renderRow}
-              keyExtractor={this.keyExtractor}>
-            </FlatList>
+      <QueryRenderer
+        environment={getRelayEnvironment()}
+        query={graphql`
+          query HomeScreenListQuery {
+            room(id: "5af73569ca392b2b8fd60a39") {
+              doneTasks {
+              id
+              date
+                task {
+                  title
+                  reward
+                  iconIndex
+                }
+                user {
+                  username
+                }
+              }
+            }
+          }
+        `}
+        variables={{}}
+        render={({error, props}) => {
+          if (error) {
+            return <Text>Error!</Text>;
+          }
+          if (!props) {
+            return <Text>Loading...</Text>;
+          }
+          return (
+          <View style={styles.homeScreenListContainer}>
+            <ScrollView>
+              <View>
+                < FlatList
+                  data={props.room.doneTasks}
+                  renderItem={this.renderRow}
+                  keyExtractor={this.keyExtractor}>
+                </FlatList>
+              </View>
+            </ScrollView>
           </View>
-        </ScrollView>
-      </View>
+          );
+        }}
+      />
     );
   }
 }
+
+const styles = {
+
+  doneTaskDate: {
+    fontSize: 15,
+    color: 'grey',
+  },
+
+  doneTaskUsername: {
+    fontSize: 20,
+    color: 'steelblue',
+  },
+
+  doneTaskTitle: { fontSize: 24, },
+
+  doneTaskInfo: { flex: 3, },
+
+  reward: {
+    fontSize: 15,
+    textAlign: 'center',
+  },
+
+  icon: {
+    width: 45,
+    height:45,
+  },
+
+  anotherIconContainer: {
+    width: 50,
+    height:50,
+    padding: 2,
+    backgroundColor:'powderblue',
+    borderWidth: 1,
+    borderColor: '#d1d1d1',
+  },
+
+  iconContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+
+  iconRewardContainer: { flex: 1, },
+
+  homeScreenListContainer: {
+    flex: 2,
+  },
+
+  itemContainer: {
+    flexDirection: 'row',
+    padding: 10,
+    justifyContent: 'space-between',
+    borderBottomWidth: 1,
+    borderBottomColor: '#d1d1d1',
+  },
+
+
+};

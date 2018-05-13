@@ -2,7 +2,6 @@ import React from 'react';
 import {graphql, QueryRenderer} from 'react-relay';
 import { Text } from 'react-native';
 
-
 import getRelayEnvironment from '../utils/getRelayEnvironment';
 
 export default class SelfPoints extends React.Component {
@@ -26,10 +25,17 @@ export default class SelfPoints extends React.Component {
           if (!props) {
             return <Text>Loading...</Text>;
           }
-          return <Text style={{fontSize: 50}}>{props.user.points}</Text>;
-
+          return <Text style={styles.selfPointsText}>
+            {props.user.points}
+            </Text>;
         }}
       />
     );
   }
 }
+
+const styles = {
+  selfPointsText: {
+    fontSize: 50,
+  },
+};

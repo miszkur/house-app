@@ -1,6 +1,6 @@
 import React from 'react';
-import {Dimensions, FlatList, Image, ListView, ScrollView, StyleSheet, Text, View} from 'react-native';
-import icons from "../constants/icons";
+import {Dimensions, FlatList, Image, ScrollView, StyleSheet, Text, View} from 'react-native';
+import icons from "../constants/Icons";
 
 
 const doneTasks = [
@@ -54,7 +54,6 @@ export default class TasksList extends React.Component {
     } else if (item.task.iconIndex === 3) {
       icon = icons.flower;
     }
-    icon = icons.flower;
 
     return (
       <View style={{ flexDirection: 'row', padding: 10, justifyContent: 'space-between', borderBottomWidth: 1,  borderBottomColor: '#d1d1d1'}}>
@@ -177,5 +176,5 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#ffffff',
   },
-})
+});
 

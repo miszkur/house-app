@@ -2,7 +2,6 @@ import React from 'react';
 import {graphql, QueryRenderer} from 'react-relay';
 import { Text } from 'react-native';
 
-
 import getRelayEnvironment from '../utils/getRelayEnvironment';
 
 export default class DaysTillDeadline extends React.Component {
@@ -36,10 +35,17 @@ export default class DaysTillDeadline extends React.Component {
           if (!props) {
             return <Text>Loading...</Text>;
           }
-          return <Text style={{fontSize: 50}}>{this.dateDifference(props.room.sprint.deadline)}</Text>;
-
+          return <Text style={styles.daysTillEndText}>
+            {this.dateDifference(props.room.sprint.deadline)}
+            </Text>;
         }}
       />
     );
   }
 }
+
+const styles = {
+  daysTillEndText: {
+    fontSize: 50,
+  },
+};

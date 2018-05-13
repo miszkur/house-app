@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 6447d8e779160907e81d5f09952af36a
+ * @relayHash e6053a5fe457d25502629639118192f7
  */
 
 /* eslint-disable */
@@ -20,7 +20,7 @@ export type SelfPointsQueryResponse = {|
 
 /*
 query SelfPointsQuery {
-  user(id: 1) {
+  user(id: "5af7008b127169039af67b5f") {
     points
     id
   }
@@ -32,7 +32,7 @@ var v0 = [
   {
     "kind": "Literal",
     "name": "id",
-    "value": 1,
+    "value": "5af7008b127169039af67b5f",
     "type": "ID"
   }
 ],
@@ -48,7 +48,7 @@ return {
   "operationKind": "query",
   "name": "SelfPointsQuery",
   "id": null,
-  "text": "query SelfPointsQuery {\n  user(id: 1) {\n    points\n    id\n  }\n}\n",
+  "text": "query SelfPointsQuery {\n  user(id: \"5af7008b127169039af67b5f\") {\n    points\n    id\n  }\n}\n",
   "metadata": {},
   "fragment": {
     "kind": "Fragment",
@@ -61,7 +61,7 @@ return {
         "kind": "LinkedField",
         "alias": null,
         "name": "user",
-        "storageKey": "user(id:1)",
+        "storageKey": "user(id:\"5af7008b127169039af67b5f\")",
         "args": v0,
         "concreteType": "User",
         "plural": false,
@@ -80,7 +80,7 @@ return {
         "kind": "LinkedField",
         "alias": null,
         "name": "user",
-        "storageKey": "user(id:1)",
+        "storageKey": "user(id:\"5af7008b127169039af67b5f\")",
         "args": v0,
         "concreteType": "User",
         "plural": false,
@@ -100,5 +100,5 @@ return {
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = '4d4481b216816b32c3859743c0a91ce2';
+(node/*: any*/).hash = 'b60d96a90e1ba33362d0b1b5bef348f4';
 module.exports = node;

@@ -21,7 +21,7 @@ export default class DaysTillDeadline extends React.Component {
         environment={getRelayEnvironment()}
         query={graphql`
           query DaysTillDeadlineQuery {
-            room(id:1) {
+            room(id: "5af73569ca392b2b8fd60a39") {
               sprint {
                 deadline
               }

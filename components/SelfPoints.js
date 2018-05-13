@@ -13,7 +13,7 @@ export default class SelfPoints extends React.Component {
         environment={getRelayEnvironment()}
         query={graphql`
           query SelfPointsQuery {
-            user(id:1) {
+            user(id: "5af7008b127169039af67b5f") {
               points
             }
           }
